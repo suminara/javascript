@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js type</title>
+</head>
+<body>
+    <script>
+        let x = 10;
+        let y = 20;
+        let z = 'lee';
+        let k = 'hojun';
+        console.log(x + y);
+        console.log(z + k);
+
+        console.log(typeof(10))
+        console.log(typeof('10'))
+        console.log(typeof([1, 2, 3]))
+        console.log(typeof(null)) // javascript의 버그 // object로 나옴 // 자바스크립트가 어려운 이유
+        console.log(typeof([]))
+        console.log(typeof({}))
+        console.log(typeof(function(){}))
+        console.log(typeof(/a/g))
+        console.log(typeof(true))
+        console.log(typeof(NaN))
+        console.log(typeof(undefined))
+
+        function typeCheck(value) {
+        const return_value = Object.prototype.toString.call(value);
+        const type = return_value.substring(
+        return_value.indexOf(" ") + 1,
+        return_value.indexOf("]")
+        );
+        return type.toLowerCase();
+        }
+
+        
+    </script>
+</body>
+</html>
