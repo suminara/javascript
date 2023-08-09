@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <button id="upBtn">up</button>
+    <button id="downBtn">down</button>
+    <h1 id="counter"></h1>
+
+    <script>
+
+        const upBtn = document.getElementById('upBtn')
+        const downBtn = document.getElementById('downBtn')
+        const counter = document.getElementById('counter')
+        let counterValue = 0;
+
+        upBtn.addEventListener('click', function(){
+            counterValue++; //클릭할때마다 밸류가 올라감
+            counter.innerHTML = counterValue; //밸류를 문서에 보여줌
+            //.textContent도 똑같다
+        })
+
+        downBtn.addEventListener('click', function(){
+            counterValue--;
+            counter.innerHTML = counterValue;
+        })
+        counter.innerHTML = counterValue;
+    </script>
+</body>
+</html>

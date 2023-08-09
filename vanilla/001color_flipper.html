@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color flipper</title>
+    <style>
+        .dark {
+            background-color: rgb(48, 49, 82);
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">button</button>
+
+    <script>
+        const darkBtn = document.getElementById('btn');
+        const body = document.body;
+        //문서 요소 가져오기
+        
+        darkBtn.addEventListener('click', function(){ //버튼에 이벤트리스너 생성
+            body.classList.toggle('dark') //바디에 클래스 토글
+        })
+        
+    </script>
+</body>
+</html>
