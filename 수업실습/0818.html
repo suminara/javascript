@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px; height: 100px;
+            background-color: black;
+        }
+        .red {background-color: red;}
+        .yellow {background-color: yellow;}
+        .green {background-color: green;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="btn1">빨강</button>
+    <button class="btn2">노랑</button>
+    <button class="btn3">초록</button>
+
+    <script>
+        const box = document.querySelector('.box')
+        const makeRed = document.querySelector('.btn1');
+        const makeYellow = document.querySelector('.btn2');
+        const makeGreen = document.querySelector('.btn3');
+        
+        makeRed.addEventListener('click', function() {
+            box.classList.remove('yellow', 'green')
+            box.classList.toggle('red')
+        })
+        makeYellow.addEventListener('click', function() {
+            box.classList.remove('red', 'green')
+            box.classList.toggle('yellow')
+        })
+        makeGreen.addEventListener('click', function() {
+            box.classList.remove('red', 'yellow')
+            box.classList.toggle('green')
+        })
+        
+    </script>
+</body>
+</html>
