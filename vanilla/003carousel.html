@@ -12,18 +12,45 @@
         .b {background-color: slateblue;}
         .c {background-color: lightblue;}
 
+        .hidden{    
+            display: none;
+        }
+
     </style>
 </head>
 <body>
     
     <div class="a"></div>
-    <div class="b"></div>
-    <div class="c"></div>
+    <div class="b hidden"></div>
+    <div class="c hidden"></div>
     
     <button id="left">left</button>
     <button id="right">right</button>
     <script>
-        
-    </script>
+    const items = document.querySelectorAll('div');
+    const left = document.getElementById('left')
+    const right = document.getElementById('right')
+
+    let currentIndex = 0;
+
+    function showItem(index) {
+        items[currentIndex].classList.add('hidden');
+        items[index].classList.remove('hidden');
+        currentIndex = index;
+    }
+
+
+    left.addEventListener('click',function(){
+        let prevIndex = (currentIndex - 1 + items.length) % items.length;
+            showItem(prevIndex);
+    })
+    right.addEventListener('click',function(){
+        let nextIndex = (currentIndex + 1) % items.length;
+            showItem(nextIndex);
+    })
+
+    showItem(currentIndex);
+
+</script>
 </body>
 </html>
