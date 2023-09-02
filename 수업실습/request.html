@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text File Loader</title>
+</head>
+<body>
+  <button id="btn">텍스트 파일 로드</button>
+  <div id="content"></div>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", function() {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "./인사.txt", true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const contentDiv = document.getElementById("content");
+          contentDiv.textContent = xhr.responseText;
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
