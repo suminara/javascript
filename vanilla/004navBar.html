@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>반응형 네비게이션 바</title>
+    <style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+
+    /* burger menu */
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Media query */
+    @media screen and (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            z-index: 1;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">로고</a>
+        </div>
+        <ul class="nav-links hidden">
+            <li><a href="#">홈</a></li>
+            <li><a href="#">서비스</a></li>
+            <li><a href="#">포트폴리오</a></li>
+            <li><a href="#">연락처</a></li>
+        </ul>
+        <div class="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+<script>
+    const burgerMenu = document.querySelector('.burger-menu')
+    const navLinks = document.querySelector('.nav-links')
+    const hidden = document.querySelector('.hidden')
+    burgerMenu.addEventListener('click', ()=>{
+        navLinks.classList.toggle('hidden')
+    })
+</script>
+</body>
+</html>
