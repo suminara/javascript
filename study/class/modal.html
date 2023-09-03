@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="modal-container"></div>
+    <script>
+    // JavaScript
+    class ModalDialog {
+        constructor(title, content) {
+            this.modal = document.createElement("div");
+            this.modal.classList.add("modal");
+
+            this.modal.innerHTML = `
+            <div class="modal-content">
+            <h2>${title}</h2>
+            <p>${content}</p>
+            <button class="close-button">Close</button>
+            </div>
+            `;
+
+            this.closeButton = this.modal.querySelector(".close-button");
+            this.closeButton.addEventListener("click", this.close.bind(this));
+        }
+
+        open() {
+            document.body.appendChild(this.modal);
+        }
+
+        close() {
+            document.body.removeChild(this.modal);
+        }
+    }
+
+    // 사용 예제
+    const openModalButton = document.getElementById("open-modal-button");
+
+    openModalButton.addEventListener("click", () => {
+        const myModal = new ModalDialog("Welcome", "This is a modal dialog.");
+        myModal.open();
+    });
+
+    </script>
+</body>
+</html>

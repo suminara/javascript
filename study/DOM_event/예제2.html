@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="sentenceInput" placeholder="문장을 입력하세요">
+    <button id="reverseButton">변환</button>
+    <div id="result"> <!-- 변환된 결과가 여기에 표시됩니다. --> </div>
+    <script>
+    //         사용자가 입력 필드에 문장을 입력하고 변환 버튼을 클릭하면, 입력된 문장에서 각 단어를 뒤집어 결과 영역에 출력되어야 합니다.
+    // 단어를 뒤집을 때, 각 단어의 문자 순서를 역순으로 만들어야 합니다. 단, 단어의 위치는 유지되어야 합니다.
+    // 예: hello 입력 --> olleh 출력
+
+    const sentenceInput = document.getElementById('sentenceInput')
+    const reverseButton = document.getElementById('reverseButton')
+    const result = document.getElementById('result')
+
+    reverseButton.addEventListener('click', ()=>{
+        const 단어별배열 = sentenceInput.value.split(' ')
+        const 리버스배열 = 단어별배열.map((i) => i.split('').reverse().join(''))
+        const 문장 = 리버스배열.join(' ');
+        result.textContent = 문장
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-container {
+            display: flex;
+        }
+    
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+    
+        .content-container {
+            margin-top: 20px;
+        }
+    
+        .content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .active-tab {
+            background-color: gold;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="tab-container">
+        <div class="tab" data-tab="1">탭 1</div>
+        <div class="tab" data-tab="2">탭 2</div>
+        <div class="tab" data-tab="3">탭 3</div>
+    </div>
+    <div class="content-container">
+        <div class="content" data-tab="1">탭 1의 내용</div>
+        <div class="content" data-tab="2">탭 2의 내용</div>
+        <div class="content" data-tab="3">탭 3의 내용</div>
+    </div>
+    
+    <!-- 요구사항:
+
+탭을 클릭하면 해당 탭의 내용이 나타나도록 구현해야 합니다.
+초기에는 첫 번째 탭과 해당 내용이 보이도록 설정해야 합니다.
+클릭한 탭은 시각적으로 구분이 되도록 스타일을 변경해야 합니다.
+다른 탭을 클릭하면 이전에 열렸던 내용은 숨겨져야 합니다. -->
+
+<script>
+    const tabContainer = document.querySelector('.tab-container')
+    const contentContainer = document.querySelector('.content-container')
+    const tab = document.querySelectorAll('.tab')
+    const content = document.querySelectorAll('.content')
+
+    tabContainer.addEventListener('click', function(event) {
+        if (event.target.classList.contains('tab')) {
+        content.forEach(i => i.style.display = 'none');
+
+        const tabAtt = event.target.getAttribute('data-tab');
+        const contentShow = document.querySelector(`.content[data-tab="${tabAtt}"]`);
+
+        contentShow.style.display = 'block';
+        tab.forEach(i => i.classList.remove('active-tab'));
+        event.target.classList.add('active-tab');
+    }})
+
+    tab[0].classList.add('active-tab');
+    content[0].style.display = 'block';
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="greetButton">인사하기</button>
+    <div id="greeting"> <!-- 인사말이 여기에 표시됩니다. --> </div>
+    <script>
+        // 사용자가 버튼을 클릭하면, 인사말이 표시된 영역에 "안녕하세요!"라는 텍스트가 나타나야 합니다.
+        const greetButton = document.getElementById('greetButton')
+        const greeting = document.getElementById('greeting')
+        greetButton.addEventListener('click', (e)=>{
+            greeting.textContent = '안녕하세요~!!!!'
+        })
+    </script>
+</body>
+</html>
